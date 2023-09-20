@@ -56,5 +56,18 @@ Steps of building the project:
 <!-- Navbar Designing -->
 13. Changing the fonts, classes of overall page by changing the layout.tsx in the app directory
 14. Creating the Navbar component, creating the getAuthSession func in the auth.ts
-15. Creating other components like SignInButton.tsx, UserAccountNav.tsx
-16. Adding npx shadcn-ui@latest add dropdown-menu
+15. Creating other components like SignInButton.tsx, UserAccountNav.tsx, UserAvatar.tsx
+16. Adding npx shadcn-ui@latest add dropdown-menu avatar
+
+
+<!-- Working on Themes -->
+17. npm install next-themes, following the docs fo next13 dark mode, wrapping the whole app inside Provider component in layout.tsx
+18. Creating the ThemeToggle component, adding it to the Navbar component
+
+
+<!-- Create Page -->
+19. Creating the Create Page, creating the CreateCourseForm component(Using shadcn form -> React hook form with zod validator, npx shadcn-ui@latest add form)
+20. npm i @hookform/resolvers , npx shadcn-ui@latest add input separator
+21. For slight animation -> npm i framer-motion
+
+22. Writing the models for Course, Unit and Chapters in the schema.prisma
