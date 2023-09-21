@@ -61,7 +61,7 @@ Steps of building the project:
 
 
 <!-- Working on Themes -->
-17. npm install next-themes, following the docs fo next13 dark mode, wrapping the whole app inside Provider component in layout.tsx
+17. npm install next-themes, following the docs for next13 dark mode(From shadcn-ui), wrapping the whole app inside Provider component in layout.tsx
 18. Creating the ThemeToggle component, adding it to the Navbar component
 
 
@@ -70,4 +70,8 @@ Steps of building the project:
 20. npm i @hookform/resolvers , npx shadcn-ui@latest add input separator
 21. For slight animation -> npm i framer-motion
 
-22. Writing the models for Course, Unit and Chapters in the schema.prisma
+22. Writing the models for Course, Unit and Chapters and Questions in the schema.prisma, then pushing the changes, npx prisma studio for opening the prisma studio
+23. Creating endpoints for creating the course
+24. Sometimes the response given by the openai have some json format problems so we will be using strict gpt function(made by someone else) to rectify the json format according to the format we want, npm i openai@3.3.0
+25. Writing the code for the endpoint to create the course
+26. Getting the UNSPLASH_API_KEY and using it in the getUnsplashImage function(in the unsplash.ts) to generate the image related to the course

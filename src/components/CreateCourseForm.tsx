@@ -2,7 +2,7 @@
 import React from "react";
 import { Form, FormControl, FormField, FormItem, FormLabel } from "./ui/form";
 import { z } from "zod";
-import { createChaptersSchema } from "@/app/validators/course";
+import { createChaptersSchema } from "@/validators/course";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Input } from "./ui/input";
