@@ -75,3 +75,9 @@ Steps of building the project:
 24. Sometimes the response given by the openai have some json format problems so we will be using strict gpt function(made by someone else) to rectify the json format according to the format we want, npm i openai@3.3.0
 25. Writing the code for the endpoint to create the course
 26. Getting the UNSPLASH_API_KEY and using it in the getUnsplashImage function(in the unsplash.ts) to generate the image related to the course
+27. Back to frontend, using react query -> npm i @tanstack/react-query, Setting up the react-query in the Providers.tsx & CreateCourseForm.tsx
+28. npx shadcn-ui@latest add toast
+
+
+<!-- Create Chapters Page -->
+29. Creating the Create Chapters page - where we will create the chapters from the youtube api, create ConfirmChapters component inside it & creating the ChapterCard component, using lucide icons in between
