@@ -18,10 +18,14 @@ export type ChapterCardHandler = {
   triggerLoad: () => void;
 };
 
-const ChapterCard = React.forwardRef<ChapterCardHandler, Props>(
+const ChapterCard = React.forwardRef<ChapterCardHandler, Props>( // Forwarding the ref to the ChapterCard component
   ({ chapter, chapterIndex, setCompletedChapters, completedChapters }, ref) => {
     const { toast } = useToast();
+
+    // For showing the ChapterCards to be green or red
     const [success, setSuccess] = React.useState<boolean | null>(null);
+
+    // Using react query mutation function to get the youtube video id, summary, questions
     const { mutate: getChapterInfo, isLoading } = useMutation({
       mutationFn: async () => {
         const response = await axios.post("/api/chapter/getInfo", {
@@ -31,6 +35,8 @@ const ChapterCard = React.forwardRef<ChapterCardHandler, Props>(
       },
     });
 
+
+    // Function for adding the completed chapters to the set
     const addChapterIdToSet = React.useCallback(() => {
       setCompletedChapters((prev) => {
         const newSet = new Set(prev);
@@ -39,6 +45,8 @@ const ChapterCard = React.forwardRef<ChapterCardHandler, Props>(
       });
     }, [chapter.id, setCompletedChapters]);
 
+
+    // For checking if the chapter is already completed
     React.useEffect(() => {
       if (chapter.videoId) {
         setSuccess(true);
@@ -46,12 +54,17 @@ const ChapterCard = React.forwardRef<ChapterCardHandler, Props>(
       }
     }, [chapter, addChapterIdToSet]);
 
+
+  
     React.useImperativeHandle(ref, () => ({
       async triggerLoad() {
+        // If the chapter is already completed
         if (chapter.videoId) {
           addChapterIdToSet();
           return;
         }
+
+        // Calling the getChapterInfo function
         getChapterInfo(undefined, {
           onSuccess: () => {
             setSuccess(true);
@@ -70,6 +83,8 @@ const ChapterCard = React.forwardRef<ChapterCardHandler, Props>(
         });
       },
     }));
+
+
     return (
       <div
         key={chapter.id}

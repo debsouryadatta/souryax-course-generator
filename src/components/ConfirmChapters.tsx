@@ -1,4 +1,5 @@
 "use client";
+
 import { Chapter, Course, Unit } from "@prisma/client";
 import React from "react";
 import ChapterCard, { ChapterCardHandler } from "./ChapterCard";
@@ -17,22 +18,32 @@ type Props = {
 
 const ConfirmChapters = ({ course }: Props) => {
   const [loading, setLoading] = React.useState(false);
+  // Initialising the chapter ref object
   const chapterRefs: Record<string, React.RefObject<ChapterCardHandler>> = {};
+
+  // Mapping the chapter ref object with the chapter id
   course.units.forEach((unit) => {
     unit.chapters.forEach((chapter) => {
       // eslint-disable-next-line react-hooks/rules-of-hooks
       chapterRefs[chapter.id] = React.useRef(null);
     });
   });
+
+  // For adding the completed chapters to the set
   const [completedChapters, setCompletedChapters] = React.useState<Set<String>>(
     new Set()
   );
+
+  
   const totalChaptersCount = React.useMemo(() => {
     return course.units.reduce((acc, unit) => {
       return acc + unit.chapters.length;
     }, 0);
   }, [course.units]);
   console.log(totalChaptersCount, completedChapters.size);
+
+
+
   return (
     <div className="w-full mt-4">
       {course.units.map((unit, unitIndex) => {

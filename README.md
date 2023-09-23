@@ -38,12 +38,15 @@ Steps of building the project:
 1. npx create-next-app@latest --ts (with ESLint, Tailwind, src dir, app router)
 2. Setting upshadcn/ui > npx shadcn-ui@latest init (global css -> src/app/globals.css, rest are default options)
 3. npx shadcn-ui@latest add button
+
+
+<!-- Prisma & PlanetScale -->
 4. Setting up Prisma PlanetScale Database on PlanetScale website
 5. Setting up Prisma -> npm i prisma --save-dev, npm i @prisma/client, npx prisma init --datasource-provider mysql
 6. Putting the PlanetScale details in the .env file
 7. Installing the Prisma VS Code extension to recognize Prisma in VS Code. 
 8. Creating Prisma client instance for using it with db in db.ts
-8. Creating the schema.prisma and pushing it to PlanetScale database using npm prisma db push
+8. Creating the schema.prisma and pushing it to PlanetScale database using npm prisma db push, npx prisma studio(for seeing the database tables)
 
 
 <!-- NextAuth implementation -->
@@ -71,13 +74,18 @@ Steps of building the project:
 21. For slight animation -> npm i framer-motion
 
 22. Writing the models for Course, Unit and Chapters and Questions in the schema.prisma, then pushing the changes, npx prisma studio for opening the prisma studio
-23. Creating endpoints for creating the course
+23. Creating endpoints for creating the course -> /api/course/createChapters
 24. Sometimes the response given by the openai have some json format problems so we will be using strict gpt function(made by someone else) to rectify the json format according to the format we want, npm i openai@3.3.0
 25. Writing the code for the endpoint to create the course
-26. Getting the UNSPLASH_API_KEY and using it in the getUnsplashImage function(in the unsplash.ts) to generate the image related to the course
+26. Getting the UNSPLASH_API_KEY and using it in the getUnsplashImage function(in the unsplash.ts) to generate the image related to the course, npm i axios(for fetching the image from unsplash)
 27. Back to frontend, using react query -> npm i @tanstack/react-query, Setting up the react-query in the Providers.tsx & CreateCourseForm.tsx
 28. npx shadcn-ui@latest add toast
 
 
 <!-- Create Chapters Page -->
-29. Creating the Create Chapters page - where we will create the chapters from the youtube api, create ConfirmChapters component inside it & creating the ChapterCard component, using lucide icons in between
+29. Creating the Create Chapters page - where we will create the chapters from the youtube api, create ConfirmChapters component inside it & creating the ChapterCard component, using lucide icons in between.
+30. Creating the backend route for generating chapters video links, summary, questions, etc in the /api/chapter/getInfo
+31. Using userefs and some other complex stuff for each of the ChapterCard and using react query to fetch the data for each of the ChapterCard
+32. Getting the youtube api key from the google cloud console, creating searchYoutube function in the youtube.ts from where we are fetching the youtube video links and npm i youtube-transcript for getting the youtube transcript from the video id
+33. Creating the getQuestionsFromTranscript func in youtube.ts, then saving the questions and updating the units with videoId, summary on the database in the /api/chapter/getInfo route
+34. Working on setting the completed chapters and turning the chapter card green/red accordingly(detailed commenting inside the code) in thr ChapterCard.tsx, ConfirmChapters.tsx

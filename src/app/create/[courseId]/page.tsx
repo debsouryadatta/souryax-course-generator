@@ -16,6 +16,8 @@ const CreateChapters = async ({ params: { courseId } }: Props) => {
   if (!session?.user) {
     return redirect("/gallery");
   }
+
+  // Searching the course with the courseId in the database
   const course = await prisma.course.findUnique({
     where: {
       id: courseId,
@@ -31,6 +33,8 @@ const CreateChapters = async ({ params: { courseId } }: Props) => {
   if (!course) {
     return redirect("/create");
   }
+
+
   return (
     <div className="flex flex-col items-start max-w-xl mx-auto my-16">
       <h5 className="text-sm uppercase text-seconday-foreground/60">
