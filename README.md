@@ -88,4 +88,15 @@ Steps of building the project:
 31. Using userefs and some other complex stuff for each of the ChapterCard and using react query to fetch the data for each of the ChapterCard
 32. Getting the youtube api key from the google cloud console, creating searchYoutube function in the youtube.ts from where we are fetching the youtube video links and npm i youtube-transcript for getting the youtube transcript from the video id
 33. Creating the getQuestionsFromTranscript func in youtube.ts, then saving the questions and updating the units with videoId, summary on the database in the /api/chapter/getInfo route
-34. Working on setting the completed chapters and turning the chapter card green/red accordingly(detailed commenting inside the code) in thr ChapterCard.tsx, ConfirmChapters.tsx
+34. Working on setting the completed chapters and turning the chapter card green/red accordingly(detailed commenting inside the code) in the ChapterCard.tsx, ConfirmChapters.tsx
+
+
+<!-- Course Page -->
+35. Creating the Course page in the "app/course/[...slug]/page.tsx" directory, creating the CourseSideBar component
+36. Creating the MainVideoSummary component and the QuizCards component - npx shadcn-ui@latest add radio-group(For the quiz mcq)
+37. Creating the Previous and next buttons in the course page
+
+
+<!-- Gallery Page -->
+38. Creating the Gallery page in the "app/gallery/page.tsx" directory, and creating the GalleryCourseCard component
+39. Changing the next config, adding the s3.us-west-2(for unsplash images)
