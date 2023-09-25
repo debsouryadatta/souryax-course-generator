@@ -100,3 +100,11 @@ Steps of building the project:
 <!-- Gallery Page -->
 38. Creating the Gallery page in the "app/gallery/page.tsx" directory, and creating the GalleryCourseCard component
 39. Changing the next config, adding the s3.us-west-2(for unsplash images)
+
+
+<!-- Stripe Payment Gateway -->
+40. Creating SubscriptionAction component and adding it inside the CreateCourseForm.tsx component
+41. Using useSession hook from next-auth to get the user session but for this we need to wrap the children inside the SessionProvider in the layout.tsx
+42. npx shadcn-ui@latest add progress -> For the progress bar in the SubscriptionAction component
+43. Getting the STRIPE_SECRET_KEY from the stripe dashboard and adding it to the .env file
+44. Creating the "/api/stripe/route.ts", also creating stripe.ts inside lib folder
