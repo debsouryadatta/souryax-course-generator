@@ -34,13 +34,13 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
 
-Steps of building the project:
+##Steps of building the project:
 1. npx create-next-app@latest --ts (with ESLint, Tailwind, src dir, app router)
 2. Setting upshadcn/ui > npx shadcn-ui@latest init (global css -> src/app/globals.css, rest are default options)
 3. npx shadcn-ui@latest add button
 
 
-<!-- Prisma & PlanetScale -->
+###Prisma & PlanetScale
 4. Setting up Prisma PlanetScale Database on PlanetScale website
 5. Setting up Prisma -> npm i prisma --save-dev, npm i @prisma/client, npx prisma init --datasource-provider mysql
 6. Putting the PlanetScale details in the .env file
@@ -49,26 +49,26 @@ Steps of building the project:
 8. Creating the schema.prisma and pushing it to PlanetScale database using npm prisma db push, npx prisma studio(for seeing the database tables)
 
 
-<!-- NextAuth implementation -->
+###NextAuth implementation
 9. npm i next-auth @next-auth/prisma-adapter(For nextAuth to interact with the database)
 10. In the auth.ts, writing the callbacks to be implemented then writing the providers
 11. Setting the the google cloud project for google oauth
 12. Creating the /api/auth/[...nextauth]/route.ts -> Basically what it does is -> Any route that comes into /api/auth will be handled by this file including all the google callbacks and google redirects
 
 
-<!-- Navbar Designing -->
+###Navbar Designing
 13. Changing the fonts, classes of overall page by changing the layout.tsx in the app directory
 14. Creating the Navbar component, creating the getAuthSession func in the auth.ts
 15. Creating other components like SignInButton.tsx, UserAccountNav.tsx, UserAvatar.tsx
 16. Adding npx shadcn-ui@latest add dropdown-menu avatar
 
 
-<!-- Working on Themes -->
+###Working on Themes
 17. npm install next-themes, following the docs for next13 dark mode(From shadcn-ui), wrapping the whole app inside Provider component in layout.tsx
 18. Creating the ThemeToggle component, adding it to the Navbar component
 
 
-<!-- Create Page -->
+###Create Page
 19. Creating the Create Page, creating the CreateCourseForm component(Using shadcn form -> React hook form with zod validator, npx shadcn-ui@latest add form)
 20. npm i @hookform/resolvers , npx shadcn-ui@latest add input separator
 21. For slight animation -> npm i framer-motion
@@ -82,7 +82,7 @@ Steps of building the project:
 28. npx shadcn-ui@latest add toast
 
 
-<!-- Create Chapters Page -->
+###Create Chapters Page
 29. Creating the Create Chapters page - where we will create the chapters from the youtube api, create ConfirmChapters component inside it & creating the ChapterCard component, using lucide icons in between.
 30. Creating the backend route for generating chapters video links, summary, questions, etc in the /api/chapter/getInfo
 31. Using userefs and some other complex stuff for each of the ChapterCard and using react query to fetch the data for each of the ChapterCard
@@ -91,18 +91,18 @@ Steps of building the project:
 34. Working on setting the completed chapters and turning the chapter card green/red accordingly(detailed commenting inside the code) in the ChapterCard.tsx, ConfirmChapters.tsx
 
 
-<!-- Course Page -->
+###Course Page
 35. Creating the Course page in the "app/course/[...slug]/page.tsx" directory, creating the CourseSideBar component
 36. Creating the MainVideoSummary component and the QuizCards component - npx shadcn-ui@latest add radio-group(For the quiz mcq)
 37. Creating the Previous and next buttons in the course page
 
 
-<!-- Gallery Page -->
+###Gallery Page
 38. Creating the Gallery page in the "app/gallery/page.tsx" directory, and creating the GalleryCourseCard component
 39. Changing the next config, adding the s3.us-west-2(for unsplash images)
 
 
-<!-- Stripe Payment Gateway -->
+###Stripe Payment Gateway
 40. Creating SubscriptionAction component and adding it inside the CreateCourseForm.tsx component
 41. Using useSession hook from next-auth to get the user session but for this we need to wrap the children inside the SessionProvider in the layout.tsx
 42. npx shadcn-ui@latest add progress -> For the progress bar in the SubscriptionAction component
