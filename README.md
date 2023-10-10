@@ -36,7 +36,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 ## Steps of building the project:
 1. npx create-next-app@latest --ts (with ESLint, Tailwind, src dir, app router)
-2. Setting upshadcn/ui > npx shadcn-ui@latest init (global css -> src/app/globals.css, rest are default options)
+2. Setting up shadcn/ui -> npx shadcn-ui@latest init (global css -> src/app/globals.css, rest are default options)
 3. npx shadcn-ui@latest add button
 
 
@@ -46,13 +46,13 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 6. Putting the PlanetScale details in the .env file
 7. Installing the Prisma VS Code extension to recognize Prisma in VS Code. 
 8. Creating Prisma client instance for using it with db in db.ts
-8. Creating the schema.prisma and pushing it to PlanetScale database using npm prisma db push, npx prisma studio(for seeing the database tables)
+8. Creating the schema.prisma and pushing it to PlanetScale database using npx prisma db push, npx prisma studio(for seeing the database tables)
 
 
 ### NextAuth implementation
 9. npm i next-auth @next-auth/prisma-adapter(For nextAuth to interact with the database)
 10. In the auth.ts, writing the callbacks to be implemented then writing the providers
-11. Setting the the google cloud project for google oauth
+11. Setting up the google cloud project for google oauth
 12. Creating the /api/auth/[...nextauth]/route.ts -> Basically what it does is -> Any route that comes into /api/auth will be handled by this file including all the google callbacks and google redirects
 
 
@@ -106,5 +106,15 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 40. Creating SubscriptionAction component and adding it inside the CreateCourseForm.tsx component
 41. Using useSession hook from next-auth to get the user session but for this we need to wrap the children inside the SessionProvider in the layout.tsx
 42. npx shadcn-ui@latest add progress -> For the progress bar in the SubscriptionAction component
+
+
 43. Getting the STRIPE_SECRET_KEY from the stripe dashboard and adding it to the .env file
 44. Creating the "/api/stripe/route.ts", also creating stripe.ts inside lib folder
+45. npm i stripe, creating stripe instance in stripe.ts
+46. Writing the code for Get request in the "/api/stripe/route.ts" for redirecting to the Stripe page(For handling subscriptions)
+47. Creating the handleSubscribe func in the SubscriptionAction component to redirect to the stripe page
+48. creating the webhook route in the "/api/webhook/route.ts" path
+49. Downloaded the stripe cli for windows by following the instructions, then testing stripe in local environment, getting the STRIPE_WEBHOOK_SECRET from the powershell and using it in the .env file(For better understanding, watch the video)
+50. Creating the settings page and creating the checkSubscription func in the subscription.ts to check if the user is subscribed or not
+51. Creating the SubscriptionButton component and including it in the settings page
+52. Using the checkSubscription func in the create page to show/hide the SubscriptionAction component
