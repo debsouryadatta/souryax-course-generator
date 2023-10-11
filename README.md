@@ -127,3 +127,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 ### Digital Ocean Deployment
 54. We are not deploying our website to vercel since vercel free tier has 10 sec for serverless function execution timeout but we need more, so we are deploying our website to digital ocean
 55. Copying the dockerfile from the example given in nextjs docs
+56. Accessing the digital ocean vps in the powershell with the command ssh root@68.183.244.160 & entering the droplet password
+57. Generating our SSH Key for the digital ocean droplet so that github can trust the vps - ssh-keygen -t rsa -b 8192
+58. The above command will generate 2 keys -> id_rsa & id_rsa.pub, copy the public key to github so that github can give access to the digital ocean vps
+59. Cloning the git repo inside the vps, sudo apt update, sudo apt install docker docker-compose
