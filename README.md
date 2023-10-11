@@ -102,12 +102,13 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 39. Changing the next config, adding the s3.us-west-2(for unsplash images)
 
 
-### Stripe Payment Gateway
+### UI of the Subscription
 40. Creating SubscriptionAction component and adding it inside the CreateCourseForm.tsx component
 41. Using useSession hook from next-auth to get the user session but for this we need to wrap the children inside the SessionProvider in the layout.tsx
 42. npx shadcn-ui@latest add progress -> For the progress bar in the SubscriptionAction component
 
 
+### Stripe Payment Gateway
 43. Getting the STRIPE_SECRET_KEY from the stripe dashboard and adding it to the .env file
 44. Creating the "/api/stripe/route.ts", also creating stripe.ts inside lib folder
 45. npm i stripe, creating stripe instance in stripe.ts
@@ -118,3 +119,11 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 50. Creating the settings page and creating the checkSubscription func in the subscription.ts to check if the user is subscribed or not
 51. Creating the SubscriptionButton component and including it in the settings page
 52. Using the checkSubscription func in the create page to show/hide the SubscriptionAction component
+
+
+53. Creating the Loading component for every page
+
+
+### Digital Ocean Deployment
+54. We are not deploying our website to vercel since vercel free tier has 10 sec for serverless function execution timeout but we need more, so we are deploying our website to digital ocean
+55. Copying the dockerfile from the example given in nextjs docs
