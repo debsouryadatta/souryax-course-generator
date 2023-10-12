@@ -157,7 +157,8 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 74. What we have seen that, when we change the code, we have to manually go and stop the docker and change in the code in the vps and restart the docker again -> To automate this process we will be using ci/cd
 75. Creating a deploy.yml file in .github/workflows folder
 76. Downloading the 2 extensions, docker & github actions in our vs code
-
-
+77. Adding the env variables in the github enivronment secrets
+78. cat id_rsa.pub > authorized_keys -> For giving access of the github to the vps
+79. Now changing some code to see our ci/cd pipeline in action
 
 https://souryax-courses.debsouryadatta.me
