@@ -132,7 +132,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 58. The above command will generate 2 keys -> id_rsa & id_rsa.pub, copy the public key to github so that github can give access to the digital ocean vps
 59. Cloning the git repo inside the vps, sudo apt update, sudo apt install docker docker-compose
 60. Creating the docker-compose.yml file in the root dir and pushing it to github, then git pull inside the vps
-61. docker-compose up --build -d -> To tun the docker in our vps
+61. docker-compose up --build -d -> To run the docker in our vps
 62. nginx will help link up the internal port 3000 to the external ip(68.183.244.160), such that when we try to access the external ip, we will also be able to access the internal port 3000
 63. Changing the next-config and the build command in package.json, copying the environmental variables inside the vps, starting the docker again
 
