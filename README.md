@@ -134,3 +134,30 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 60. Creating the docker-compose.yml file in the root dir and pushing it to github, then git pull inside the vps
 61. docker-compose up --build -d -> To tun the docker in our vps
 62. nginx will help link up the internal port 3000 to the external ip(68.183.244.160), such that when we try to access the external ip, we will also be able to access the internal port 3000
+63. Changing the next-config and the build command in package.json, copying the environmental variables inside the vps, starting the docker again
+
+64. sudo apt install nginx, sudo service nginx status -> default nginx port is 80, we will link it with 3000 to serve our nextjs site and delete the html content(nginx help us accessing the ip address)
+65. COme back to the root dir, cd etc/nginx/sites-enabled, vim default
+66. Delete the text inside default and change it with the custom one - server{
+        server_name 165.232.185.129;
+        location / {
+                proxy_pass http://localhost:3000;
+        }
+}
+67. sudo nginx -t(for checking the format of the nginx file)
+68. sudo service nginx restart, sudo service nginx status -> Now we can access the ip address and see our website
+69. Linking the IP address with the domain name -> NameCheap domain setup -> Adding the A record with the ip address, adding the CNAME record with the ip address and some other stuff
+70. Getting the free SSL with certbot nginx - sudo snap install --classic certbot, sudo ln -s /snap/bin/certbot /usr/bin/certbot
+71. Changing the default file's server_name to the domain name, sudo certbot --nginx 
+72. Changing the NEXTAUTH_URL in .env file for nextauth to work, also changing the callback url in google cloud console
+73. Also create a new STRIPE_API_KEY with the domain name (by following the video) in the stripe dashboard and add it to the .env file of the vps
+
+
+### CI/Cd Pipeline
+74. What we have seen that, when we change the code, we have to manually go and stop the docker and change in the code in the vps and restart the docker again -> To automate this process we will be using ci/cd
+75. Creating a deploy.yml file in .github/workflows folder
+76. Downloading the 2 extensions, docker & github actions in our vs code
+
+
+
+https://souryax-courses.debsouryadatta.me
